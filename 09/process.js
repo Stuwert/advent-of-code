@@ -89,12 +89,10 @@ function createRopeOfLength(length) {
 
 function processMovements(listOfCommands, ropeLength) {
   const connectedRope = createRopeOfLength(ropeLength);
-  console.log(connectedRope);
   const placesTailHasBeen = new Set([
     coordinatesToString(connectedRope[connectedRope.length - 1]),
   ]);
 
-  let processCount = 0;
   listOfCommands.forEach((command) => {
     const [direction, countString] = command.split(" ");
 
@@ -104,7 +102,6 @@ function processMovements(listOfCommands, ropeLength) {
       connectedRope[0] = newHead;
 
       for (let j = 1; j < connectedRope.length; j++) {
-        processCount++;
         const leadLink = connectedRope[j - 1];
         const followLink = connectedRope[j];
 
